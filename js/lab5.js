@@ -25,7 +25,7 @@ $(document).ready(function() {
 	var parentDiv = $("#templatedProjects");
 
 	var choice = JSON.parse(localStorage.getItem("grid"));
-	
+
 	// start with a simple template
 	simpleData.grid = choice;
 	var html = template(simpleData);
@@ -58,6 +58,13 @@ $(document).ready(function() {
 
 	// insert click handler here
 	// so that it will be registered once the page has been loaded
+	$(".likeBtn").click(function() {
+		console.log("like button clicked"); // fix smart quote from slide!
+		// tracker code here, refer to slide #26 and #27
+		tracker = ga.getAll()[0];
+		tracker.send('event', 'like', 'click');
+	});
+
 
 });
 
